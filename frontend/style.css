@@ -1,0 +1,1217 @@
+/* Global Styles */
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    background-color: #f8f9fa; /* Light background for overall page */
+}
+
+/* Header Section */
+header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 0 4rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for header */
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+.main-logo {
+    color: darkblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sub-logo {
+    color: rgb(231, 195, 39);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.button {
+    height: 35px;
+    width: 90px;
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333333;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: lightblue;
+    color: black;
+    border: 1.5px solid gray;
+    transform: translateY(-2px);
+}
+
+.menu {
+    gap: 30px;
+    display: flex;
+    color: #1e3a8a;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.menu p {
+    transition: color 0.3s ease;
+}
+
+.menu p:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.header-profile {
+    position: relative; /* For dropdown positioning */
+    width: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-profile p {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: darkblue;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.header-profile p:hover {
+    background-color: #d0d0d0;
+}
+
+.logoutDropdown {
+    display: none;
+    position: absolute;
+    top: 60px; /* Position below the profile icon */
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 120px;
+    z-index: 100;
+}
+
+.logoutBtn {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.logoutBtn:hover {
+    background-color: #f0f0f0;
+    color: red;
+}
+
+
+/* Login and Signup Forms */
+.overlay-signup,
+.overlay-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.select {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px; /* Slightly larger for better clickability */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    transition: color 0.2s ease;
+}
+
+#close-btn:hover {
+    color: #e60000; /* Red on hover */
+}
+
+.form input,
+.form select {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc; /* Add a subtle border */
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input:focus,
+.form select:focus {
+    border-color: lightblue;
+    box-shadow: 0 0 0 2px rgba(173, 216, 230, 0.5); /* Light blue glow */
+}
+
+.form label {
+    font-size: 0.9rem;
+    color: #333333;
+    text-align: left;
+    width: 100%;
+    margin-bottom: -10px; /* Adjust spacing */
+}
+
+.signup-button,
+.login-button {
+    width: 120px; /* Wider buttons */
+    height: 40px; /* Taller buttons */
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center; /* Center the buttons */
+    margin-top: 10px;
+}
+
+.signup-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.signup-button:hover {
+    background-color: #218838; /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+.login-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+
+/* Main Section (Landing Page) */
+.main-section {
+    height: calc(100vh - 80px - 70px); /* Full height minus header and footer */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.main-section img {
+    width: 90%;
+    max-height: 650px;
+    border-radius: 30px;
+    object-fit: cover; /* Ensure image covers area without distortion */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Main Content Area (Dashboard & Posts) */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Lighter background for content cards */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+/* Freelancer Cards (Employer View) */
+.main-freeLancer {
+    background-color: #ffffff;
+    width: 300px; /* Slightly wider cards */
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.main-freeLancer:hover {
+    transform: translateY(-5px);
+    background-color: #eaf6ff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.freelancer-image {
+    width: 80px;
+    height: 80px;
+    background-color: #d0e2ff;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #007bff; /* Add a border */
+}
+
+.main-freeLancer h2 {
+    font-size: 22px; /* Slightly larger title */
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.main-freeLancer p {
+    font-size: 14px;
+    color: #666;
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+.f-profile-check {
+    margin-top: 15px;
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.f-profile-check:hover {
+    background-color: #0056b3;
+}
+
+/* Horizontal Rule for Sections */
+.body-section hr,
+.talent-emp hr {
+    height: 3px; /* Thinner line */
+    width: 90%;
+    border: none;
+    background: linear-gradient(to right, white, #002B5B 50%, white);
+    margin: 20px auto; /* Add margin for spacing */
+    border-radius: 5px;
+}
+
+/* Job Post Cards (Freelancer View) */
+.main-posts {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    max-width: 320px;
+    min-width: 260px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-posts:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    background-color: #f9fcff;
+}
+
+.post-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners for image */
+}
+
+.main-posts h2 {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.main-posts h3 {
+    font-size: 15px;
+    color: #0077cc;
+    margin: 8px 0 4px;
+    font-weight: 500;
+}
+
+.main-posts p {
+    font-size: 14px;
+    color: #4a4a4a;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+/* Apply Button */
+.apply-btn {
+    margin-top: 15px; /* More space */
+    padding: 12px 0;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.apply-btn:hover {
+    background-color: #162e6c;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    height: 70px;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px; /* Space above footer */
+}
+
+/* Post Job Form (Employer) */
+.my-posts {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    position: fixed; /* Fixed position for overlay */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+}
+
+.my-posts #closeBtn {
+    position: absolute;
+    top: 15px; /* Adjusted position */
+    right: 20px; /* Adjusted position */
+    font-size: 28px; /* Larger close button */
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.my-posts #closeBtn:hover {
+    color: #e60000;
+}
+
+#post-post {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+}
+
+#post-post h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #1e3a8a;
+    font-size: 1.8rem; /* Larger heading */
+}
+
+#post-post label {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+#post-post input,
+#post-post textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#post-post input:focus,
+#post-post textarea:focus {
+    border-color: #1e3a8a;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+}
+
+.post-job button {
+    background-color: #1e3a8a; /* Blue button */
+    color: white;
+    font-size: 1.1rem; /* Larger font */
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px; /* More space */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.post-job button:hover {
+    background-color: #162e6c;
+    transform: translateY(-2px);
+}
+
+/* Freelancer Details Update Form */
+.freelancer-details {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Wider form for more fields */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+    overflow-y: auto; /* Enable scrolling for long forms */
+    max-height: 90vh; /* Limit height */
+}
+
+.freelancer-details button:first-child { /* Close button */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.freelancer-details button:first-child:hover {
+    color: #e60000;
+}
+
+#freelancer-profile-form { /* Renamed from #post-post in freelancer.html */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+}
+
+#freelancer-profile-form input,
+#freelancer-profile-form select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#freelancer-profile-form input:focus,
+#freelancer-profile-form select:focus {
+    border-color: #1e3a8a;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+}
+
+#freelancer-profile-form button[type="button"] {
+    background-color: #1e3a8a;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+#freelancer-profile-form button[type="button"]:hover {
+    background-color: #162e6c;
+    transform: translateY(-2px);
+}
+
+
+/* Dashboard Sections */
+.talent, .talent-emp {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.talent h2, .talent-emp h2 {
+    font-size: 2.2rem;
+    color: #002B5B;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Main Dashboard Section (Welcome & Cards) */
+.all-main-section {
+    margin: 40px auto;
+    width: 80%;
+    min-height: 350px; /* Adjusted min-height */
+    border-radius: 30px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(24, 21, 233, 0.9), rgba(86, 86, 242, 0.7));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+.all-main-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.all-main-section p {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 600px;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Background effects for all-main-section */
+.all-main-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+    z-index: 0;
+    animation: pulseGlow 6s infinite ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+.wave {
+    animation: wave-animation 2s infinite;
+    display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(10deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card h2, .card p:first-child { /* Target the number/total posts text */
+    font-size: 2.5rem; /* Larger numbers */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Post Job Button (within all-main-section) */
+.all-main-section .post-job button {
+    background-color: white;
+    color: #1e3a8a;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.all-main-section .post-job button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+
+/* Chat Popup */
+.chat-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; /* Wider chat window */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #162e6c;
+}
+
+.chat-header .close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.chat-header .close-chat:hover {
+    color: #ffdddd;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    max-height: 300px; /* Max height for scrollable messages */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9f9f9;
+}
+
+.chat-messages p { /* For "No messages yet" text */
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+.chat-popup input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 15px;
+    width: calc(100% - 30px); /* Adjust for padding */
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.chat-popup button {
+    background-color: #28a745; /* Green send button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 15px 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.chat-popup button:hover {
+    background-color: #218838;
+}
+
+/* Chat Message Styling */
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.my-message {
+    background-color: #dcf8c6; /* Light green for sender */
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.other-message {
+    background-color: #e0e0e0; /* Light grey for receiver */
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.chat-message .sender-name {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #555;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.chat-message p { /* Message content */
+    margin: 0;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.chat-message .message-time {
+    font-size: 0.7em;
+    color: #888;
+    text-align: right;
+    display: block;
+    margin-top: 2px;
+}
+
+
+/* Employer Dashboard - Applicants List */
+.post-applicants-section {
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.post-applicants-section h4 {
+    font-size: 1.1rem;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.applicants-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.applicants-list li {
+    background-color: #f8f9fa; /* Light background for each applicant */
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #333;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.applicants-list li p { /* For completion status */
+    margin: 5px 0 0 0;
+    font-size: 0.85rem;
+    color: #666;
+    width: 100%; /* Ensure it takes full width below name/chat */
+    text-align: left;
+}
+
+.applicants-list li .chat-btn {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.applicants-list li .chat-btn:hover {
+    background-color: #0056b3;
+}
+
+.applicants-list li .download-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 6px 12px;
+    background-color: #28a745; /* Green for download */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.applicants-list li .download-link:hover {
+    background-color: #218838;
+}
+
+
+/* Freelancer Dashboard - Action Buttons */
+.main-posts .post-actions { /* NEW: Container for action buttons */
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to next line */
+    gap: 10px; /* Space between buttons */
+    margin-top: 15px;
+    justify-content: center; /* Center buttons horizontally */
+}
+
+.main-posts .message-btn,
+.main-posts .upload-completion-btn {
+    flex: 1 1 auto; /* Allow items to grow and shrink, but maintain content size */
+    min-width: 120px; /* Ensure a minimum width for buttons */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.main-posts .message-btn {
+    background-color: #007bff; /* Blue for message */
+    color: white;
+}
+
+.main-posts .message-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.main-posts .upload-completion-btn {
+    background-color: #ffc107; /* Yellow for upload */
+    color: #333;
+}
+
+.main-posts .upload-completion-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+.main-posts .download-link {
+    display: block; /* Make it a block element */
+    margin-top: 0; /* Reset margin-top as it's handled by gap */
+    padding: 10px 15px;
+    background-color: #17a2b8; /* Teal for download */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex: 1 1 auto; /* Make it behave like other buttons */
+    min-width: 120px;
+}
+
+.main-posts .download-link:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+}
+
+
+/* Project Completion Upload Popup */
+.completion-upload-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.completion-upload-popup .popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 450px; /* Slightly wider */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.completion-upload-popup .popup-content h3 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.completion-upload-popup .popup-content input[type="file"] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.completion-upload-popup .popup-content button {
+    background-color: #28a745; /* Green upload button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.completion-upload-popup .popup-content button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.completion-upload-popup .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.completion-upload-popup .close-btn:hover {
+    color: #e60000;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    header {
+        padding: 0 2rem;
+    }
+    .main-section img,
+    .all-main-section,
+    .talent, .talent-emp {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        gap: 10px;
+    }
+    .header-logo, .menu, .header-buttons, .header-profile {
+        width: 100%;
+        justify-content: center;
+    }
+    .menu {
+        gap: 15px;
+    }
+    .main-section img {
+        border-radius: 15px;
+    }
+    .all-main-section {
+        padding: 30px;
+        min-height: auto;
+    }
+    .dashboard-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 80%;
+    }
+    .main-posts, .main-freeLancer {
+        max-width: 90%;
+        width: 100%;
+    }
+    .main-posts .post-actions { /* Stack buttons vertically on small screens */
+        flex-direction: column;
+        gap: 10px;
+    }
+    .main-posts .message-btn,
+    .main-posts .upload-completion-btn,
+    .main-posts .download-link {
+        width: 100%; /* Full width on small screens */
+        margin-right: 0;
+    }
+    .chat-popup {
+        width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+    .my-posts, .freelancer-details, .completion-upload-popup .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo h3 {
+        font-size: 1.2rem;
+    }
+    .header-logo p {
+        font-size: 0.8rem;
+    }
+    .menu p {
+        font-size: 0.9rem;
+    }
+    .form input, .form select {
+        font-size: 0.85rem;
+    }
+    .select h3 {
+        font-size: 1.5rem;
+    }
+    .all-main-section h1 {
+        font-size: 2rem;
+    }
+    .all-main-section p {
+        font-size: 1rem;
+    }
+    .card h2, .card p:first-child {
+        font-size: 2rem;
+    }
+    .talent h2, .talent-emp h2 {
+        font-size: 1.8rem;
+    }
+    .main-posts h2 {
+        font-size: 1.1rem;
+    }
+    .main-posts h3 {
+        font-size: 0.9rem;
+    }
+    .main-posts p {
+        font-size: 0.8rem;
+    }
+    .apply-btn, .message-btn, .upload-completion-btn, .download-link {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+}

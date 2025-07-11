@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body onload="displayPosts()">
+    <header>
+        <div class="header-logo">
+            <div class="main-logo">
+                <h3>Free Lancer</h3>
+            </div>
+            <div class="sub-logo">
+                <p>Community</p>
+            </div>
+        </div>
+        <div class="menu">
+            <p class="one-menu" onclick="showMsg()">Find Work 🎯</p>
+        </div>
+        <div onclick="showLogout()" class="header-profile">
+            <p><i class="fa-solid fa-user"></i></p>
+            <div class="logoutDropdown">
+                <span class="logoutBtn" onclick="logout()">Logout</span>
+            </div>
+        </div>
+    </header>
+    <div class="all-main-section">
+        <p class="showName"></p>
+        <p>Here’s a quick look at your working activity.</p>
+        <div class="post-job">
+                <button onclick="updateDetails()">Update Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <div class="profile-data-updates">
+            <div class="freelancer-details">
+                <button onclick="closeform2()">&times;</button>
+                <form id="freelancer-profile-form">
+                    Full Name:
+                    <input type="text" id="freelancer-name" required>
+                    Email:
+                    <input type="email" id="freelancer-email" required>
+                    Phone Number:
+                    <input type="tel" id="freelancer-phone" pattern="[0-9]{10}" required>
+                    Location:
+                    <input type="text" id="freelancer-location" placeholder="City, Country" required>
+                    Skills:
+                    <input type="text" id="freelancer-skills" placeholder="e.g. HTML, CSS, JS, Node.js" required>
+                    Years of Experience:
+                    <input type="number" id="freelancer-experience" min="0" max="50" required>
+                    Portfolio URL:
+                    <input type="url" id="freelancer-portfolio" placeholder="https://your-portfolio.com">
+                    GitHub/LinkedIn:
+                    <input type="url" id="freelancer-link" placeholder="https://github.com/username">
+                    Availability:
+                    <select id="freelancer-availability">
+                        <option value="full-time">Full-Time</option>
+                        <option value="part-time">Part-Time</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="contract">Contract-Based</option>
+                    </select>
+                    Expected Hourly Rate (INR):
+                    <input type="number" id="freelancer-rate" min="100" placeholder="e.g. 500" required>
+
+                    <button type="button" onclick="submitFreelancerDetails()">Update Details</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="talent">
+            <h2>Works and Projects</h2>
+            <br>
+            <hr>
+            <main class="main-content">
+                Loading available posts
+            </main>
+        </div>
+        <!-- Chat Popup for Freelancer -->
+        <div class="chat-popup" id="chatPopup" style="display: none;">
+            <div class="chat-header">
+                <span id="chatTitle">Chat</span>
+                <button onclick="closeChat()" class="close-chat">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <input type="text" id="chatInput" placeholder="Type a message..." />
+            <button onclick="sendFreelancerMessage()">Send</button>
+        </div>
+
+        <!-- Project Completion Upload Popup -->
+        <div class="completion-upload-popup" id="completionUploadPopup" style="display: none;">
+            <div class="popup-content">
+                <h3>Upload Project Completion File</h3>
+                <button onclick="closeCompletionUploadPopup()" class="close-btn">&times;</button>
+                <input type="file" id="completionFileInput" accept=".zip,.pdf,.doc,.docx,.jpg,.png">
+                <button onclick="uploadCompletionFile()">Upload File</button>
+            </div>
+        </div>
+
+
+    </div>
+    <footer>
+        <p>&copy;Freelancer Community. All Rights are Reserved 2025</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function showMsg() {
+            alert("Explore the work below in section....😊");
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("userToken");
+
+            if (!token) {
+                alert("Please login first.");
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

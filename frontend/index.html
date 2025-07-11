@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Free Lancer</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+    </head>
+    <body>
+        <header>
+            <div class="header-logo">
+                <div class="main-logo">
+                    <h3>Free Lancer</h3>
+                </div>
+                <div class="sub-logo">
+                    <p>Community</p>
+                </div>
+            </div>
+            <div class="menu">
+                <p class="one-menu" onclick="showMsg()">Find Work 🎯</p>
+                <p class="two-menu" onclick="showMsg()">Find Talent 🔎</p>
+            </div>
+            <div class="header-buttons">
+                <button class="button" type="button" onclick="showSignup()">Sign Up</button>
+                <button class="button" type="button" onclick="showLogin()">Login</button>
+            </div>
+        </header>
+        <main>
+            <div class="overlay-signup" style="display:none;">
+                <div class="select">
+                    <h3>Signup</h3>
+                    <span id="close-btn" onclick="closepop1()">&times;</span>
+                    <form class="form" onsubmit="return false;">
+                        <label for="signup-name">Enter your Name</label>
+                        <input type="text" id="signup-name" placeholder="enter your name" required>
+                        <label for="signup-email">Enter your Email</label>
+                        <input type="email" id="signup-email" placeholder="enter your email" required>
+                        <label for="signup-password">Enter Password</label>
+                        <input type="password" id="signup-password" placeholder="enter your password" required>
+                        <label for="signup-option">Select option</label>
+                        <select id="signup-option" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="employer">Employer</option>
+                            <option value="freelancer">Freelancer</option>
+                        </select>
+                        <button type="button" onclick="signup()" class="signup-button">Register</button>
+                    </form>
+                </div>
+            </div>
+            <div class="overlay-login" style="display:none;">
+                <div class="select">
+                    <h3>Log In</h3>
+                    <span id="close-btn" onclick="closepop2()">&times;</span>
+                    <form class="form" onsubmit="return false;">
+                        <label for="login-email">Enter your Email</label>
+                        <input type="email" id="login-email" placeholder="enter your email" required>
+                        <label for="login-password">Enter Password</label>
+                        <input type="password" id="login-password"  placeholder="enter your password" required>
+                        <select id="login-option" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="employer">Employer</option>
+                            <option value="freelancer">Freelancer</option>
+                        </select>
+                        <button type="button" onclick="login()" class="login-button">Login</button>
+                    </form>
+                </div>
+            </div>
+
+           <div class="main-section">
+            <div class="main-image">
+                <img src="main-img.jpg" alt="Main Image">
+            </div>
+           </div>
+        </main>
+        <footer>
+            <p>&copy;Freelancer Community. All Rights are Reserved 2025</p>
+        </footer>
+        <script src="script.js"></script>
+        <script>
+            function showMsg(){
+                alert("Login in for accessing them....😅");
+            }
+        </script>
+    </body>
+</html>
